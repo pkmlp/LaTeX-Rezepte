@@ -2,17 +2,18 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Einstellungen für ganzes Dokument mit Sans-Serif-Schrift
 %
-% \documentclass[twoside, 
-%                a4paper, 
-%                10pt, 
-%                parskip=full, 
-%                sectionentrydots=true, 
-%                listof=totoc, 
-%                listof=entryprefix, 
-%                numbers=endperiod]{scrartcl} 
-% \renewcommand{\familydefault}{\sfdefault}
-% \usepackage[hidelinks]{hyperref}
-% \urlstyle{sf}
+%\documentclass[twoside, 
+%               a4paper, 
+%               10pt, 
+%               parskip=full, 
+%               sectionentrydots=true, 
+%               listof=totoc, 
+%               listof=entryprefix, 
+%               numbers=endperiod]{scrartcl}
+%\renewcommand{\familydefault}{\sfdefault}
+%\usepackage[hidelinks]{hyperref}
+%\urlstyle{sf}
+%\renewcommand\textbullet{\ensuremath{\bullet}}
 %
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -20,12 +21,12 @@
 %
 \documentclass[twoside, 
                a4paper, 
-               10pt, 
+              10pt, 
                parskip=full, 
                sectionentrydots=true, 
                listof=totoc, 
                listof=entryprefix,
-               numbers=endperiod]{scrartcl} 
+               numbers=endperiod]{scrartcl}
 \RedeclareSectionCommand[
   beforeskip=0\baselineskip,
   afterskip=.1\baselineskip]{section}
@@ -35,16 +36,16 @@
 \setkomafont{disposition}{\normalcolor\bfseries}
 \usepackage[hidelinks]{hyperref}
 %
+%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 
 % Einstellen der Seitenränder
 \usepackage[top=1.5cm, bottom=2.5cm, left=3cm, right=1.5cm]{geometry}
 
 % Packages für deutsche Umlaute
-\usepackage[ngerman]{babel} 
-\usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
+\usepackage[ngerman]{babel} 
+\usepackage[utf8]{inputenc} 
 
 % Packages für und Definiton der "miniSeiten"
 \usepackage[most]{tcolorbox}
