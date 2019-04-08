@@ -1,0 +1,15 @@
+
+Das Stichwortverzeichnis soll auf einer ungeraden (linken) Seite des Dokumentes erscheinen.
+
+\textbf{Zur Erinnerung:} Die Erstellung des Stichwortverzeichnisses erfodert ein spezielles \LaTeX-Werkzeug (MakeIndex). Damit alles korrekt erstellt wird, muss folgende Sequenz eingehalten werden:
+
+\begin{enumerate}
+\setlength\itemsep{-1em}
+\item pdfLaTeX
+\item pdfLaTeX
+\item MakeIndex (nur wenn Stichwortverzeichnis vorhanden)
+\item bibLaTeX (nur wenn Literaturverzeichnis vorhanden)
+\item pdfLaTeX
+\item pdfLaTeX
+\item pdf ansehen
+\end{enumerate}
