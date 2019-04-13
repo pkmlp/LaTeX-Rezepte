@@ -21,7 +21,7 @@
 %
 \documentclass[twoside, 
                a4paper, 
-              10pt, 
+               10pt, 
                parskip=full, 
                sectionentrydots=true, 
                listof=totoc, 
@@ -65,7 +65,7 @@
 \usepackage{framed}
 \definecolor{isabelline}{rgb}{0.96, 0.94, 0.93}
 \renewenvironment{leftbar}[1][\hsize]
-{%
+{
     \def\FrameCommand
     {
         {\color{gray}\vrule width 3pt}
@@ -77,8 +77,12 @@
 {\endMakeFramed}
 
 % Packages für Symbole und Formeln:
-\usepackage{amsmath, amssymb}
-\usepackage{amsthm}
+\usepackage{amsmath, amssymb, amsthm}
+
+% Theoreme, Sätze, ...
+\newtheorem{satz}{Satz}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem*{behauptung}{Behauptung}
 
 % Packages für Programm-Listings:
 \usepackage{listings}
@@ -89,22 +93,52 @@
 % Packages um PDF-Dateien einzubinden
 \usepackage{pdfpages}
 
-% Packages für Stichwortverzeichnis
-\usepackage{makeidx}
-\makeindex
+% Packages für Bilder
+\usepackage{graphicx}
 
 % Definition eigener Befehle
 \newcommand{\frob}{Frobeniushomomorphismus }
 
+% Packages für Stichwortverzeichnis - Standard
+\usepackage{makeidx}
+\makeindex
+
+% Packages für Stichwortverzeichnis - Formatiert
+%\usepackage{imakeidx}
+%\usepackage[columns = 1]{idxlayout}
+%\makeindex[options= -s my_index_style.ist]
+%\usepackage{filecontents}
+%\begin{filecontents}{my_index_style.ist}
+%headings_flag  1                         % wir benutzen Überschriften
+%heading_prefix "{\\bfseries "            % und setzen sie fett
+%heading_suffix "\\hfil}\\nopagebreak\n"  % und links, nach innen kein Seitenumbruch
+%delim_0 "\\dotfill"                      % Punkte zwischen Einträgen und Seitenzahlen (Ebene 0)
+%delim_1 "\\dotfill"                      % Punkte zwischen Einträgen und Seitenzahlen (Ebene 1)
+%delim_2 "\\dotfill"                      % Punkte zwischen Einträgen und Seitenzahlen (Ebene 2)
+%delim_r "--"                             % Trenner zwischen Start und Ende eines Seitenbereiches
+%suffix_2p "\\,f."                        % Suffix bei einem bereich aus 2 Seiten
+%suffix_3p "\\,ff."                       % Suffix bei einem bereich aus 3 Seiten
+%\end{filecontents}
+
+% Packages für Literaturverzeichnis und Zitierungen
+\usepackage[numbers]{natbib}
+\bibliographystyle{plainnat}
+%\bibliographystyle{humannat}
+\renewcommand*{\bibfont}{\raggedright}
+
+% Packages für Tabellen
+\usepackage{tabularx}
+\usepackage{booktabs}
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash}p{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+
+% Package für Abkürzungsverzeichnis mit oder ohne Angabe der Seite
+\usepackage[printonlyused]{acronym}
+%\usepackage[printonlyused,withpage]{acronym}
+
 
 
 \begin{document}
-
-% Theoreme, Sätze, ...
-\newtheorem{satz}{Satz}
-\newtheorem{theorem}{Theorem}[section]
-\newtheorem*{behauptung}{Behauptung}
-
 
 % Erstellen der Titelseite
 \input{inhalte/titelseite} 
@@ -217,6 +251,22 @@
 \end{miniSeite}
 \input{themen/unnummerierteFormel/Rechts_3}
 
+
+
+% Linke Seite - Beispiele Formeln
+\newpage
+\subsection{Beispiele weiterer Formeln}
+{\textbf {Folgende Formel(n) ...}}
+\begin{miniSeite}[colbacktitle=black!35!white,title=Ausdruck]
+\input{themen/beispielFormel/Links_2}
+\end{miniSeite}
+
+% Rechte Seite - Lösung Beispiele Formeln
+\newpage
+{\textbf {Wird erstellt mit ...}}
+\begin{miniSeite}[colbacktitle=black!35!white,title=\LaTeX-Code]
+\input{themen/beispielFormel/Rechts_2}
+\end{miniSeite}
 
 
 %%%%%%%%%%%%%%% --- Theorem --- %%%%%%%%%%%%%%%%%%%
@@ -343,6 +393,51 @@
 \input{themen/eigeneBefehle/Rechts_3}
 
 
+%%%%%%%%% --- Abbildungen & Abbildungsverzeichnis --- %%%%%%%%%%
+
+% Linke Seite - Problemstellung Abbildungen
+\newpage
+\section{Abbildungen \& Abbildungsverzeichnis}
+\subsection{Abbildungen einfügen}
+
+{\textbf {Ich hätte gerne ...}}
+\input{themen/abbildungen/Links_1} 
+%\begin{miniSeite}[colbacktitle=black!35!white,title=Ausdruck]
+\input{themen/abbildungen/Links_2}
+%\end{miniSeite}
+\input{themen/abbildungen/Links_3}
+
+% Rechte Seite - Lösung Abbildungen 
+\newpage
+{\textbf {Das erreiche ich mit ...}}
+\input{themen/abbildungen/Rechts_1} 
+\begin{miniSeite}[colbacktitle=black!35!white,title=\LaTeX-Code]
+\input{themen/abbildungen/Rechts_2}
+\end{miniSeite}
+\input{themen/abbildungen/Rechts_3}
+
+
+
+% Linke Seite - Problemstellung Abbildungsverzeichnis
+\newpage
+\subsection{Abbildungsverzeichnis erstellen}
+{\textbf {Ich hätte gerne ...}}
+\input{themen/abbildungsverzeichnis/Links_1} 
+\begin{miniSeite}[colbacktitle=black!35!white,title=Ausdruck]
+\input{themen/abbildungsverzeichnis/Links_2}
+\end{miniSeite}
+\input{themen/abbildungsverzeichnis/Links_3}
+
+% Rechte Seite - Lösung Abbildungsverzeichnis 
+\newpage
+{\textbf {Das erreiche ich mit ...}}
+\input{themen/abbildungsverzeichnis/Rechts_1} 
+\begin{miniSeite}[colbacktitle=black!35!white,title=\LaTeX-Code]
+\input{themen/abbildungsverzeichnis/Rechts_2}
+\end{miniSeite}
+\input{themen/abbildungsverzeichnis/Rechts_3}
+
+
 
 %%%%%%%%% --- Stichworte & Stichwortverzeichnis --- %%%%%%%%%%
 
@@ -389,6 +484,168 @@
 \input{themen/stichwortVerzeichnis/Rechts_3}
 
 
+
+%%%%%%%%% --- Zitieren & Literatur- / Quellenverzeichnis --- %%%%%%%%%%
+
+% Linke Seite - Problemstellung Zitieren
+\newpage
+\section{Quellen \& Literaturverzeichnis}
+\subsection{Quellen zitieren}
+
+{\textbf {Ich hätte gerne ...}}
+\input{themen/zitieren/Links_1} 
+%\begin{miniSeite}[colbacktitle=black!35!white,title=Ausdruck]
+\input{themen/zitieren/Links_2}
+%\end{miniSeite}
+\input{themen/zitieren/Links_3}
+
+% Rechte Seite - Lösung Zitieren 
+\newpage
+{\textbf {Das erreiche ich mit ...}}
+\input{themen/zitieren/Rechts_1} 
+\begin{miniSeite}[colbacktitle=black!35!white,title=\LaTeX-Code]
+\input{themen/zitieren/Rechts_2}
+\end{miniSeite}
+\input{themen/zitieren/Rechts_3}
+
+
+
+% Linke Seite - Problemstellung Literatur- / Quellenverzeichnis
+\newpage
+\subsection{Literaturverzeichnis erstellen}
+{\textbf {Ich hätte gerne ...}}
+\input{themen/literatur/Links_1} 
+\begin{miniSeite}[colbacktitle=black!35!white,title=Ausdruck]
+\input{themen/literatur/Links_2}
+\end{miniSeite}
+\input{themen/literatur/Links_3}
+
+% Rechte Seite - Lösung Literatur- / Quellenverzeichnis 
+\newpage
+{\textbf {Das erreiche ich mit ...}}
+\input{themen/literatur/Rechts_1} 
+\begin{miniSeite}[colbacktitle=black!35!white,title=\LaTeX-Code]
+\input{themen/literatur/Rechts_2}
+\end{miniSeite}
+\input{themen/literatur/Rechts_3}
+
+
+
+%%%%%%%%% --- Tabellen und Tabellenverzeichnis --- %%%%%%%%%%
+
+% Linke Seite - Problemstellung Tabellen
+\newpage
+\section{Tabellen \& Tabellenverzeichnis}
+\subsection{Tabellen erstellen}
+
+{\textbf {Ich hätte gerne ...}}
+\input{themen/tabellen/Links_1} 
+%\begin{miniSeite}[colbacktitle=black!35!white,title=Ausdruck]
+\input{themen/tabellen/Links_2}
+%\end{miniSeite}
+\input{themen/tabellen/Links_3}
+
+% Rechte Seite - Lösung Tabellen 
+\newpage
+{\textbf {Das erreiche ich mit ...}}
+\input{themen/tabellen/Rechts_1} 
+\begin{miniSeite}[colbacktitle=black!35!white,title=\LaTeX-Code]
+\input{themen/tabellen/Rechts_2}
+\end{miniSeite}
+\input{themen/tabellen/Rechts_3}
+
+
+
+% Linke Seite - Problemstellung Tabellenverzeichnis
+\newpage
+\subsection{Tabellenverzeichnis erstellen}
+{\textbf {Ich hätte gerne ...}}
+\input{themen/tabellenVerzeichnis/Links_1} 
+\begin{miniSeite}[colbacktitle=black!35!white,title=Ausdruck]
+\input{themen/tabellenVerzeichnis/Links_2}
+\end{miniSeite}
+\input{themen/tabellenVerzeichnis/Links_3}
+
+% Rechte Seite - Lösung Tabellenverzeichnis 
+\newpage
+{\textbf {Das erreiche ich mit ...}}
+\input{themen/tabellenVerzeichnis/Rechts_1} 
+\begin{miniSeite}[colbacktitle=black!35!white,title=\LaTeX-Code]
+\input{themen/tabellenVerzeichnis/Rechts_2}
+\end{miniSeite}
+\input{themen/tabellenVerzeichnis/Rechts_3}
+
+
+
+%%%%%%%%% --- Abkürzungen und Abkürzungserzeichnis --- %%%%%%%%%%
+
+% Linke Seite - Problemstellung Abkürzungen
+\newpage
+\section{Abkürzungen \& Abürzungsverzeichnis}
+\subsection{Abkürzungen definieren}
+
+{\textbf {Ich hätte gerne ...}}
+\input{themen/abkuerzungen/Links_1} 
+%\begin{miniSeite}[colbacktitle=black!35!white,title=Ausdruck]
+\input{themen/abkuerzungen/Links_2}
+%\end{miniSeite}
+\input{themen/abkuerzungen/Links_3}
+
+% Rechte Seite - Lösung Abkürzungen 
+\newpage
+{\textbf {Das erreiche ich mit ...}}
+\input{themen/abkuerzungen/Rechts_1} 
+\begin{miniSeite}[colbacktitle=black!35!white,title=\LaTeX-Code]
+\input{themen/abkuerzungen/Rechts_2}
+\end{miniSeite}
+\input{themen/abkuerzungen/Rechts_3}
+
+
+
+% Linke Seite - Problemstellung Abürzungsverzeichnis
+\newpage
+\subsection{Abürzungsverzeichnis erstellen}
+{\textbf {Ich hätte gerne ...}}
+\input{themen/abkuerzungsVerzeichnis/Links_1} 
+\begin{miniSeite}[colbacktitle=black!35!white,title=Ausdruck]
+\input{themen/abkuerzungsVerzeichnis/Links_2}
+\end{miniSeite}
+\input{themen/abkuerzungsVerzeichnis/Links_3}
+
+% Rechte Seite - Lösung Abürzungsverzeichnis 
+\newpage
+{\textbf {Das erreiche ich mit ...}}
+\input{themen/abkuerzungsVerzeichnis/Rechts_1} 
+\begin{miniSeite}[colbacktitle=black!35!white,title=\LaTeX-Code]
+\input{themen/abkuerzungsVerzeichnis/Rechts_2}
+\end{miniSeite}
+\input{themen/abkuerzungsVerzeichnis/Rechts_3}
+
+
+
+%%%%%%%%% --- Symbolverzeichnis --- %%%%%%%%%%
+
+% Linke Seite - Problemstellung Symbolverzeichnis
+\newpage
+\section{Symbolverzeichnis}
+\subsection{Symbolverzeichnis erstellen}
+{\textbf {Ich hätte gerne ...}}
+\input{themen/symbolVerzeichnis/Links_1}
+\begin{miniSeite}[colbacktitle=black!35!white,title=Ausdruck]
+\input{themen/symbolVerzeichnis/Links_2}
+\end{miniSeite} 
+
+% Rechte Seite - Lösung Symbolverzeichnis 
+\newpage
+{\textbf {Das erreiche ich mit ...}}
+\input{themen/symbolVerzeichnis/Rechts_1} 
+\begin{miniSeite}[colbacktitle=black!35!white,title=\LaTeX-Code]
+\input{themen/symbolVerzeichnis/Rechts_2}
+\end{miniSeite}
+\input{themen/symbolVerzeichnis/Rechts_3}
+
+
+
 %%%%%%%%% --- Stichwortverzeichnis ausgeben --- %%%%%%%%%%
 
 % Einfügen einer Leerseite ohne Seitenummer
@@ -399,8 +656,89 @@
 % Erstellen des Stichwortverzeichisses mit Eintrag in ToC
 \newpage
 \addcontentsline{toc}{section}{Stichwortverzeichnis}
-\renewcommand{\indexname}{Stichwortverzeichnis \bigskip}\label{index}
+\renewcommand{\indexname}{Stichwortverzeichnis \bigskip} 
+   \label{index}
 \printindex
+
+
+
+%%%%%%%%% --- Abbildungsverzeichnis ausgeben --- %%%%%%%%%%
+
+% Einfügen einer Leerseite ohne Seitenummer
+\newpage
+\thispagestyle{empty}
+\mbox{}
+
+% Erstellen des Abbildungsverzeichnis 
+% Eintrag in ToC wird automatisch erstellt
+\newpage
+\listoffigures
+\label{abbildungen}
+
+
+
+%%%%%%%%% --- Tabellenverzeichnis ausgeben --- %%%%%%%%%%
+
+% Einfügen einer Leerseite ohne Seitenummer
+% Eintrag in ToC wird automatisch erstellt
+\newpage
+\thispagestyle{empty}
+\mbox{}
+
+% Erstellen des Tabellenverzeichnis 
+\newpage
+\listoftables
+\label{tabellen}
+
+
+
+%%%%%%%%% --- Quellen- / Literaturverzeichnis ausgeben --- %%%%%%%%%%
+
+% Einfügen einer Leerseite ohne Seitenummer
+\newpage
+\thispagestyle{empty}
+\mbox{}
+
+% Erstellen des Quellen- / Literaturverzeichnis 
+\newpage
+\addcontentsline{toc}{section}{Literaturverzeichnis}
+\renewcommand{\refname}{Literaturverzeichnis} 
+\bibliography{./verzeichnisse/literatur}
+
+
+
+%%%%%%%%% --- Abkürzungsverzeichnis ausgeben --- %%%%%%%%%%
+
+% Einfügen einer Leerseite ohne Seitenummer
+\newpage
+\thispagestyle{empty}
+\mbox{}
+
+% Erstellen des Abkürzungsverzeichnis
+\newpage
+\section*{Abkürzungsverzeichnis} 
+\addcontentsline{toc}{section}{Abkürzungsverzeichnis}
+\label{abkuerzungen}
+\begin{acronym}[SEPSEPSEP]
+\setlength{\parskip}{0ex}
+\input{./verzeichnisse/abkuerzungen.tex}
+\end{acronym}
+
+
+
+%%%%%%%%% --- Symbolverzeichnis ausgeben --- %%%%%%%%%%
+
+% Einfügen einer Leerseite ohne Seitenummer
+\newpage
+\thispagestyle{empty}
+\mbox{}
+
+% Erstellen des Symbolverzeichnis
+\newpage
+\section*{Symbolverzeichnis}
+\addcontentsline{toc}{section}{Symbolverzeichnis}
+\label{symbole} 
+\input{./verzeichnisse/symbole.tex}
 
 
 
