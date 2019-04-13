@@ -5,5 +5,4 @@ Die hier vorliegenden LATEX-Rezepte sind entstanden aus Fragen die im Verlaufe d
 
 Haben Sie selber schon Lösungen/Beispiele zu Themen und/oder Problemstellungen die hier noch nicht enthalten sind, so können Sie mir diese sehr gerne zustellen, damit ich diese (natürlich mit Quellenangabe) in dieses Dokuemtn aufnehmen kann.
 
-LATEX ist nie Liebe auf den ersten Blick. LATEX lernt man (mit zunehmender Erfahrung/Übung) lieben. Je mehr LATEX-Rezepte hier versammelt sind, desto leichter fällt es zukünftigen Studierenden sich in LATEX einzuarbeiten.
-
+LaTeX ist nie Liebe auf den ersten Blick. LaTeX lernt man (mit zunehmender Erfahrung/Übung) lieben. Je mehr LaTeX-Rezepte hier versammelt sind, desto leichter fällt es zukünftigen Studierenden sich in LaTeX einzuarbeiten.
