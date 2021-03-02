@@ -1,5 +1,5 @@
 # LaTeX-Rezepte
-## LaTeX - Problemstellungen und Lösungen
+## LaTeX - Problemstellungen und Lösungen 
 
 Die hier vorliegenden LATEX-Rezepte sind entstanden aus Fragen die im Verlaufe der Zeit an mich gerichtet wurden. Fehlen für Sie interessante Themen und/oder Problemstellungen, senden Sie mir bitte eine Mail und ich werde diese möglichst bald in dieses Dokument aufnehmen.
 
